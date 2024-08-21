@@ -11,16 +11,22 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants.LauncherConstants;
 
 public class CANLauncher extends SubsystemBase {
-  CANSparkMax m_launchWheel;
-  CANSparkMax m_feedWheel;
+  CANSparkMax leftLaunchWheel;
+  CANSparkMax leftFeedWheel;
+  CANSparkMax rightLaunchWheel;
+  CANSparkMax rightFeedWheel;
 
   /** Creates a new Launcher. */
   public CANLauncher() {
-    m_launchWheel = new CANSparkMax(LauncherConstants.kLauncherID, MotorType.kBrushless);
-    m_feedWheel = new CANSparkMax(LauncherConstants.kFeederID, MotorType.kBrushless);
+    leftLaunchWheel = new CANSparkMax(LauncherConstants.kLeftLauncherID, MotorType.kBrushless);
+    leftFeedWheel = new CANSparkMax(LauncherConstants.kLeftFeederID, MotorType.kBrushless);
+    rightLaunchWheel = new CANSparkMax(LauncherConstants.kRightLauncherID, MotorType.kBrushless);
+    rightFeedWheel = new CANSparkMax(LauncherConstants.kRightFeederID, MotorType.kBrushless);
 
-    m_launchWheel.setSmartCurrentLimit(LauncherConstants.kFeedCurrentLimit);
-    m_feedWheel.setSmartCurrentLimit(LauncherConstants.kFeedCurrentLimit);
+    leftLaunchWheel.setSmartCurrentLimit(LauncherConstants.kFeedCurrentLimit);
+    leftFeedWheel.setSmartCurrentLimit(LauncherConstants.kFeedCurrentLimit);
+    rightLaunchWheel.setSmartCurrentLimit(LauncherConstants.kFeedCurrentLimit);
+    rightFeedWheel.setSmartCurrentLimit(LauncherConstants.kFeedCurrentLimit);
   }
 
   /**
@@ -47,18 +53,22 @@ public class CANLauncher extends SubsystemBase {
 
   // An accessor method to set the speed (technically the output percentage) of the launch wheel
   public void setLaunchWheel(double speed) {
-    m_launchWheel.set(speed);
+    leftLaunchWheel.set(speed);
+    rightLaunchWheel.set(-speed);
   }
 
   // An accessor method to set the speed (technically the output percentage) of the feed wheel
   public void setFeedWheel(double speed) {
-    m_feedWheel.set(speed);
+    leftFeedWheel.set(speed);
+    rightFeedWheel.set(-speed);
   }
 
   // A helper method to stop both wheels. You could skip having a method like this and call the
   // individual accessors with speed = 0 instead
   public void stop() {
-    m_launchWheel.set(0);
-    m_feedWheel.set(0);
+    leftLaunchWheel.set(0);
+    rightLaunchWheel.set(0);
+    leftFeedWheel.set(0);
+    rightFeedWheel.set(0);
   }
 }

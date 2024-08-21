@@ -17,9 +17,9 @@ import frc.robot.Constants.OperatorConstants;
 import frc.robot.commands.Autos;
 import frc.robot.commands.LaunchNote;
 import frc.robot.commands.PrepareLaunch;
+import frc.robot.subsystems.CANClimber;
 import frc.robot.subsystems.CANDrivetrain;
 import frc.robot.subsystems.CANLauncher;
-import frc.robot.subsystems.PWMClimber;
 import edu.wpi.first.wpilibj.DataLogManager;
 import edu.wpi.first.wpilibj.DriverStation;
 
@@ -44,7 +44,7 @@ public class RobotContainer {
   private final CANLauncher launcher = new CANLauncher();
   // private final CANLauncher launcher = new CANLauncher();
 
-  private final PWMClimber climber = new PWMClimber();
+  private final CANClimber climber = new CANClimber();
 
   /*
    * The gamepad provided in the KOP shows up like an XBox controller if the mode
