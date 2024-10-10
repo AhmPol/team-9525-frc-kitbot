@@ -30,7 +30,11 @@ public class Climber extends SubsystemBase {
    * the climb motor
    */
   public void setClimbSpeed(double speed) {
+    if ((speed > 0 && topSwitch.get()) || (speed < 0 && bottomSwitch.get())) {
+      climbMotor.set(0);
+    } else {
     climbMotor.set(speed);
+    }
   }
 
   // A helper method to stop climb motor. You could skip having a method like this
@@ -42,7 +46,7 @@ public class Climber extends SubsystemBase {
 
   @Override
   public void periodic() {
-    SmartDashboard.putBoolean("Switch Top", this.topSwitch.get());
-    SmartDashboard.putBoolean("Switch Bottom", this.bottomSwitch.get());
+    SmartDashboard.putBoolean("Switch Top", !this.topSwitch.get());
+    SmartDashboard.putBoolean("Switch Bottom", !this.bottomSwitch.get());
   }
 }

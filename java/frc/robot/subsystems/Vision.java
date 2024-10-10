@@ -6,21 +6,22 @@ package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import edu.wpi.first.cameraserver.CameraServer;
+import edu.wpi.first.cscore.CvSource;
 import edu.wpi.first.cscore.UsbCamera;
-import edu.wpi.first.util.sendable.Sendable;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-
 
 public class Vision extends SubsystemBase {
   private UsbCamera camera;
+  private CvSource outputStream;
   /** Creates a new Vision. */
   public Vision() {
     camera = CameraServer.startAutomaticCapture();
-    
+    camera.setResolution(640, 480);
+    camera.setFPS(30);
+
+    outputStream = CameraServer.putVideo("Camera", 640, 480);
   }
 
   @Override
   public void periodic() {
-    SmartDashboard.putData("Camera", (Sendable) camera);
   }
 }

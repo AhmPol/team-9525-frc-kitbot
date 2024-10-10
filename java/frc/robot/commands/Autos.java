@@ -61,6 +61,27 @@ public final class Autos {
       );
   }
 
+  public static Command shootAndTurnAuto(Drivetrain drivetrain, Launcher launcher) {
+    return Commands.sequence(
+      new PrepareLaunch(launcher)
+              .withTimeout(LauncherConstants.kLauncherDelay)
+              .andThen(new Launch(launcher))
+              .withTimeout(LauncherConstants.kLauncherRunDuration)
+              .andThen(() -> launcher.stop())
+              .handleInterrupt(() -> launcher.stop()),
+
+      // Turn away from the speaker (e.g., 45 degrees to the left)
+      new RunCommand(() -> drivetrain.arcadeDrive(0, 0.5), drivetrain)
+        .withTimeout(1.0) // Adjust time based on testing
+
+      // Drive backward
+      .andThen(new RunCommand(() -> drivetrain.arcadeDrive(-0.7, 0), drivetrain)
+        .withTimeout(1.9 * AutoConstants.kAutoTimeout)
+      )
+    );
+  }
+
+
   public static Command shootAndDriveDiagonalBackwardAuto(Drivetrain drivetrain, Launcher launcher) {
 
     return Commands.sequence(

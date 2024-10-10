@@ -70,9 +70,10 @@ import frc.robot.Constants.DrivetrainConstants;
 
   @Override
   public void periodic() {
-    SmartDashboard.putNumber("Bus Voltage", leftFront.getBusVoltage());
-    SmartDashboard.putNumber("Current", leftFront.getOutputCurrent());
-    SmartDashboard.putNumber("Applied Output", leftFront.getAppliedOutput());
-    SmartDashboard.putNumber("Motor Temperature", leftFront.getMotorTemperature());
+    SmartDashboard.putNumber("Right Bus Voltage", rightFront.getBusVoltage());
+    SmartDashboard.putNumber("Right Current", rightFront.getOutputCurrent());
+    SmartDashboard.putNumber("Right Motor Temperature", rightFront.getMotorTemperature());
+    SmartDashboard.putNumber("Left Speed", leftFront.getEncoder().getVelocity());
+    SmartDashboard.putNumber("Right Speed", rightFront.getEncoder().getVelocity()); 
   }
 }
