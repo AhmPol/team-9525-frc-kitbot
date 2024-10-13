@@ -6,6 +6,7 @@ package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import edu.wpi.first.wpilibj.SPI;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import com.kauailabs.navx.frc.AHRS;
 
@@ -33,10 +34,19 @@ public class NavX extends SubsystemBase {
   }
   
   public double getAngle() {
-    return navx.getAngle();
+    return navx.getAngle(); // the total accumulated angle from the NavX (since last reset)
+  }
+
+  public void reset() {
+    navx.reset(); // Resets the accumulated angle (yaw, pitch, roll) to zero.
   }
 
   @Override
   public void periodic() {
+    SmartDashboard.putNumber("NavX Yaw", getYaw());
+    SmartDashboard.putNumber("NavX Pitch", getPitch());
+    SmartDashboard.putNumber("NavX Roll", getRoll());
+    SmartDashboard.putBoolean("NavX Connected", isConnected());
+    SmartDashboard.putNumber("NavX Angle", getAngle());
   }
 }

@@ -5,7 +5,7 @@
 package frc.robot;
 
 import edu.wpi.first.wpilibj.DriverStation;
-import edu.wpi.first.wpilibj.DriverStation.Alliance;
+//import edu.wpi.first.wpilibj.DriverStation.Alliance;
 import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -15,6 +15,7 @@ import frc.robot.Constants.LauncherConstants;
 import frc.robot.Constants.OperatorConstants;
 import frc.robot.commands.Auto.BlueLeftAuto;
 import frc.robot.commands.Auto.BlueRightAuto;
+import frc.robot.commands.Auto.BothCenter;
 import frc.robot.commands.Auto.RedLeftAuto;
 import frc.robot.commands.Auto.RedRightAuto;
 import frc.robot.commands.Climber.Ascend;
@@ -45,14 +46,9 @@ import frc.robot.subsystems.Vision;
 public class RobotContainer {
   // the robot's subsystems are defined here.
   private final Drivetrain drivetrain = new Drivetrain();
-  // private final CANDrivetrain drivetrain = new CANDrivetrain();
   private final Launcher launcher = new Launcher();
-  // private final CANLauncher launcher = new CANLauncher();
-
   private final Climber climber = new Climber();
-
   private final NavX navX = new NavX();
-
   private final Vision vision = new Vision();
 
   /*
@@ -65,7 +61,7 @@ public class RobotContainer {
   private final Command RedLeftAuto = new RedLeftAuto(drivetrain, launcher, navX);
   private final Command BlueRightAuto = new BlueRightAuto(drivetrain, launcher, navX);
   private final Command BlueLeftAuto = new BlueLeftAuto(drivetrain, launcher, navX); 
-   
+  private final Command BothCenter = new BothCenter(drivetrain, launcher, navX); 
 
   // A chooser for autonomous commands
   SendableChooser<Command> chooser = new SendableChooser<>();
@@ -79,14 +75,12 @@ public class RobotContainer {
     configureBindings();
 
     // Add commands to the autonomous command chooser
-    if (DriverStation.getAlliance().get() == Alliance.Red) {
       chooser.setDefaultOption("RedRightAuto", RedRightAuto);
       chooser.addOption("RedLeftAuto", RedLeftAuto);
-    }
-    else if (DriverStation.getAlliance().get() == Alliance.Blue) {
+      chooser.addOption("BothCenter", BothCenter);
       chooser.setDefaultOption("BlueLeftAuto", BlueLeftAuto); 
       chooser.addOption("BlueRightAuto", BlueRightAuto);
-    }
+      chooser.addOption("BothCenter", BothCenter);
 
     SmartDashboard.putData("Auto choices", chooser);
     SmartDashboard.putNumber("Match Time", DriverStation.getMatchTime());

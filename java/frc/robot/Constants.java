@@ -31,7 +31,7 @@ public final class Constants {
     public static final int kCurrentLimit = 60;
 
     //Slew rate limit for the motors
-    public static final double kSlewRateLimit = 3;
+    public static final double kSlewRateLimit = 3.0;
 
     //Slow drive Speed for Robot
     public static final double kSlowDriveSpeed = 0.6;
@@ -66,6 +66,8 @@ public final class Constants {
 
     public static final double kLauncherSlowLaunchSpeed = 0.3;
     public static final double kFeederSlowLaunchSpeed = -0.3;
+
+    public static final double kMaxTemperature = 60.0;
   }
 
   public static class GroundMotorConstants{
@@ -84,15 +86,15 @@ public final class Constants {
     public static final int kclimberID = 0;
 
     public static final double kclimberAscendSpeed = 0.7;
-    public static final double kclimberDescendSpeed = -1;
+    public static final double kclimberDescendSpeed = -1.0;
 
-    public static final double kclimberMinHeight = 40;
-    public static final double kclimberMaxHeight = 70;
+    public static final double kclimberMinHeight = 40.0;
+    public static final double kclimberMaxHeight = 70.0;
 
     public static final int kTopSwitchID = 1;
     public static final int kBottomSwitchID = 2;
 
-    public static final double kCurrentHeight = 10;
+    public static final double kCurrentHeight = 10.0;
   }
 
   public static class NavXConstants {

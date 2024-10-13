@@ -14,10 +14,10 @@ import frc.robot.subsystems.Launcher;
 import frc.robot.subsystems.NavX;
 import edu.wpi.first.math.controller.PIDController;
 
-public class RedRightAuto extends SequentialCommandGroup {
+public class BothCenter extends SequentialCommandGroup {
   private final PIDController turnController;
 
-  public RedRightAuto(Drivetrain drivetrain, Launcher launcher, NavX navX) {
+  public BothCenter(Drivetrain drivetrain, Launcher launcher, NavX navX) {
     // PIDController for turning to a specific angle
     turnController = new PIDController(0.02, 0, 0); // Tuned P value, adjust based on robot testing
 
@@ -33,25 +33,15 @@ public class RedRightAuto extends SequentialCommandGroup {
           .withTimeout(LauncherConstants.kLauncherRunDuration)
           .andThen(() -> launcher.stop()),
 
-      // 2. Turn left (move slightly)
-      new RunCommand(() -> drivetrain.arcadeDrive(0.5, 0), drivetrain)
-          .withTimeout(2.0)
-          .andThen(() -> drivetrain.arcadeDrive(0, 0)), // Stop drivetrain after turning left
-
-      // 3. Turn left to -135 degrees
+      // 2. Turn 180 degrees
       new RunCommand(() -> {
-        double targetAngle = -135; // Adjust to your desired angle
+        double targetAngle = 180; // Rotate to 180 degrees
         double currentAngle = navX.getYaw();
         double turnSpeed = turnController.calculate(currentAngle, targetAngle);
         drivetrain.arcadeDrive(0, turnSpeed);
       }, drivetrain)
       .withTimeout(2.0)
-      .andThen(() -> drivetrain.arcadeDrive(0, 0)), // Stop turning
-
-      // 4. Drive forward for 6 seconds
-      new RunCommand(() -> drivetrain.arcadeDrive(-0.5, 0), drivetrain)
-          .withTimeout(6.0)
-          .andThen(() -> drivetrain.stop()) // Stop drivetrain after driving forward
+      .andThen(() -> drivetrain.arcadeDrive(0, 0)) // Stop turning
     );
   }
 }

@@ -6,6 +6,8 @@ package frc.robot.subsystems;
 
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkLowLevel.MotorType;
+
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants.LauncherConstants;
 
@@ -48,6 +50,22 @@ public class Launcher extends SubsystemBase {
     rightFeedWheel.set(speed);
   }
 
+  public double getLeftLauncherTemperature() {
+    return leftLaunchWheel.getMotorTemperature();
+  }
+
+  public double getRightLauncherTemperature() {
+    return rightLaunchWheel.getMotorTemperature();
+  }
+
+  public double getLeftFeederTemperature() {
+    return leftFeedWheel.getMotorTemperature();
+  }
+
+  public double getRightFeederTemperature() {
+    return rightFeedWheel.getMotorTemperature();
+  }
+
   // A helper method to stop both wheels. You could skip having a method like this and call the
   // individual accessors with speed = 0 instead
   public void stop() {
@@ -55,8 +73,34 @@ public class Launcher extends SubsystemBase {
     leftLaunchWheel.set(0);
     rightFeedWheel.set(0);
     rightLaunchWheel.set(0);
+
+    SmartDashboard.putBoolean("Launcher Stopped", true);
   }
 
   @Override
-  public void periodic() {}
+  public void periodic() {
+    /* double leftLauncherTemp = getLeftLauncherTemperature();
+    double rightLauncherTemp = getRightLauncherTemperature();
+    double leftFeederTemp = getLeftFeederTemperature();
+    double rightFeederTemp = getRightFeederTemperature();
+    */
+    
+    SmartDashboard.putNumber("Left Launcher Speed", leftLaunchWheel.get());
+    SmartDashboard.putNumber("Right Launcher Speed", rightLaunchWheel.get());
+    SmartDashboard.putNumber("Left Feeder Speed", leftFeedWheel.get());
+    SmartDashboard.putNumber("Right Feeder Speed", rightFeedWheel.get());
+
+    /*if (leftFeederTemp > LauncherConstants.kMaxTemperature|| rightFeederTemp > LauncherConstants.kMaxTemperature) {
+      SmartDashboard.putBoolean("Feeder Alert", true);
+    }
+    else {
+      SmartDashboard.putBoolean("Feeder Alert", false);
+    }
+    if (leftLauncherTemp > LauncherConstants.kMaxTemperature|| rightLauncherTemp > LauncherConstants.kMaxTemperature) {
+      SmartDashboard.putBoolean("Launcher Alert", true);
+    }
+    else {
+      SmartDashboard.putBoolean("Launcher Alert", false);
+    */
+  }
 }
