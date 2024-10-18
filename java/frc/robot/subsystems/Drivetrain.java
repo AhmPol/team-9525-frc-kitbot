@@ -72,7 +72,7 @@ import frc.robot.Constants.DrivetrainConstants;
   public void periodic() {
     SmartDashboard.putNumber("Right Bus Voltage", rightFront.getBusVoltage());
     SmartDashboard.putNumber("Left Bus Voltage", leftFront.getBusVoltage());
-    SmartDashboard.putNumber("Right Current", rightFront.getAppliedOutput());
-    SmartDashboard.putNumber("Left Current", leftFront.getAppliedOutput());
+    SmartDashboard.putNumber("Right Current", rightFront.getOutputCurrent());
+    SmartDashboard.putNumber("Left Current", leftFront.getOutputCurrent());
   }
 }

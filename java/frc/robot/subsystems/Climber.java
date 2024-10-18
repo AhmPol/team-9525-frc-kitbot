@@ -30,10 +30,11 @@ public class Climber extends SubsystemBase {
    * the climb motor
    */
   public void setClimbSpeed(double speed) {
+    // Stop the motor if it reaches the top or bottom switch
     if ((speed > 0 && topSwitch.get()) || (speed < 0 && bottomSwitch.get())) {
       climbMotor.set(0);
     } else {
-    climbMotor.set(speed);
+      climbMotor.set(speed);
     }
   }
 
@@ -48,5 +49,7 @@ public class Climber extends SubsystemBase {
   public void periodic() {
     SmartDashboard.putBoolean("Switch Top", !this.topSwitch.get());
     SmartDashboard.putBoolean("Switch Bottom", !this.bottomSwitch.get());
+    SmartDashboard.putNumber("Climber Motor Current", climbMotor.getOutputCurrent());
+    SmartDashboard.putNumber("Climber Motor Voltage", climbMotor.getBusVoltage());
   }
 }

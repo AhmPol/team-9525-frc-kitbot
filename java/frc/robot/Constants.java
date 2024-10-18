@@ -54,18 +54,18 @@ public final class Constants {
     // Launcher Top 7 is the top motor. 
     // Launches with Negative values
     public static final double kLauncherIntakeSpeed = 0.2;
-    public static final double kLauncherLaunchSpeed = -1.0;
+    public static final double kLauncherLaunchSpeed = -0.9;
 
     // Feeder Bottom 6 is the bottom motor. 
     // Launches with Positive values
     public static final double kFeederIntakeSpeed = 0.2;
-    public static final double kFeederLaunchSpeed = -1.0;
+    public static final double kFeederLaunchSpeed = -0.9;
 
     public static final double kLauncherDelay = 0.5;
     public static final double kLauncherRunDuration = 1;
 
-    public static final double kLauncherSlowLaunchSpeed = 0.3;
-    public static final double kFeederSlowLaunchSpeed = -0.3;
+    public static final double kLauncherSlowLaunchSpeed = 0.1;
+    public static final double kFeederSlowLaunchSpeed = -0.1;
 
     public static final double kMaxTemperature = 60.0;
   }
@@ -81,7 +81,7 @@ public final class Constants {
 
   }
   public static class ClimberConstants{
-    public static final int kclimberID = 0;
+    public static final int kclimberID = 9;
 
     public static final double kclimberAscendSpeed = 0.7;
     public static final double kclimberDescendSpeed = -1.0;
@@ -89,8 +89,8 @@ public final class Constants {
     public static final double kclimberMinHeight = 40.0;
     public static final double kclimberMaxHeight = 70.0;
 
-    public static final int kTopSwitchID = 1;
-    public static final int kBottomSwitchID = 2;
+    public static final int kTopSwitchID = 0;
+    public static final int kBottomSwitchID = 1;
 
     public static final double kCurrentHeight = 10.0;
   }

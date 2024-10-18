@@ -51,11 +51,5 @@ public class NavX extends SubsystemBase {
     SmartDashboard.putBoolean("NavX Connected", isConnected());
     SmartDashboard.putNumber("NavX Angle", getAngle());
     SmartDashboard.putNumber("NavX Yaw", getYaw());
-
-    System.out.println("Yaw: " + getYaw());
-    System.out.println("Pitch: " + getPitch());
-    System.out.println("Roll: " + getRoll());
-    System.out.println("Angle: " + getAngle());
-    System.out.println("NavX Connected: " + isConnected());
   }
 }
