@@ -41,7 +41,6 @@ public class Descend extends Command {
   // This occurs after the topSwitch has been achieved and returns true. Which stops the command.
   @Override
   public boolean isFinished() {
-    //return climber.bottomSwitch.get();
-    return false;
+    return climber.bottomSwitch.get();
   }
 }
