@@ -19,7 +19,7 @@ This repository contains the code for our 2024 FRC (FIRST Robotics Competition) 
 * Drivetrain control with joystick input
 * Shooter mechanism with PID control
 * Autonomous routines for game pieces
-* Sensor integration (vision, encoders, NavX, etc.)
+* Sensor integration (photovision & NavX)
 
 ---
 
