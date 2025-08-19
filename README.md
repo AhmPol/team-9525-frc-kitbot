@@ -6,11 +6,11 @@ This repository contains the code for our 2024 FRC (FIRST Robotics Competition) 
 
 ## Overview
 
-* Team: \NileTech 9525
+* Team: NileTech 9525
 * Season: 2024
-* Robot Name: \Croco-Nile Name
-* Programming Language: \Java
-* Control System: \WPILib
+* Robot Name: Croco-Nile Name
+* Programming Language: Java
+* Control System: WPILib
 
 ---
 
