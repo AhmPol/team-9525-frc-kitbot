@@ -8,7 +8,7 @@ This repository contains the code for our 2024 FRC (FIRST Robotics Competition) 
 
 * Team: NileTech 9525
 * Season: 2024
-* Robot Name: Croco-Nile Name
+* Robot Name: Croco-Nile
 * Programming Language: Java
 * Control System: WPILib
 
@@ -16,10 +16,12 @@ This repository contains the code for our 2024 FRC (FIRST Robotics Competition) 
 
 ## Features
 
-* Feature 1: e.g., Drivetrain control with joystick input
-* Feature 2: e.g., Shooter mechanism with PID control
-* Feature 3: e.g., Autonomous routines for game pieces
-* Feature 4: e.g., Sensor integration (vision, encoders, etc.)
+* Drivetrain control with joystick input
+* Shooter mechanism with PID control
+* Autonomous routines for game pieces
+* Sensor integration (vision, encoders, NavX, etc.)
+
+---
 
 ## Getting Started
 
@@ -29,14 +31,14 @@ This repository contains the code for our 2024 FRC (FIRST Robotics Competition) 
 git clone <repo_url>
 ```
 
-2. Install dependencies (e.g., WPILib, RobotPy).
-3. Build and deploy to the robot using \[specific instructions for your control system].
+2. Install dependencies (e.g., WPILib).
+3. Build and deploy to the robot using your control system instructions.
 
 ---
 
 ## License
 
-Specify your license, e.g., MIT License
+This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
 
 ---
 
