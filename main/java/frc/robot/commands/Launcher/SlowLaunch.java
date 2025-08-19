@@ -2,22 +2,21 @@
 // Open Source Software; you can modify and/or share it under the terms of
 // the WPILib BSD license file in the root directory of this project.
 
-package frc.robot.commands;
+package frc.robot.commands.Launcher;
 
 import static frc.robot.Constants.LauncherConstants.*;
-
 import edu.wpi.first.wpilibj2.command.Command;
-import frc.robot.subsystems.CANLauncher;
+import frc.robot.subsystems.Launcher;
 
-// import frc.robot.subsystems.CANLauncher;
 
-public class PrepareSlowLaunch extends Command {
-  CANLauncher launcher;
+/*This is an example of creating a command as a class. The base Command class provides a set of methods that your command
+ * will override.
+ */
+public class SlowLaunch extends Command {
+  private Launcher launcher;
 
-  // CANLauncher launcher;
-
-  /** Creates a new PrepareSlowLaunch. */
-  public PrepareSlowLaunch(CANLauncher launcher) {
+  /** Creates a new LaunchNote. */
+  public SlowLaunch(Launcher launcher) {
     // save the launcher system internally
     this.launcher = launcher;
 
@@ -25,11 +24,11 @@ public class PrepareSlowLaunch extends Command {
     addRequirements(launcher);
   }
 
-  // Called when the command is initially scheduled.
+  // The initialize method is called when the command is initially scheduled.
   @Override
   public void initialize() {
-    // Set launch wheel to speed, keep feed wheel at 0 to let launch wheel spin up.
-    launcher.setLaunchWheel(kLauncherSlowLaunchSpeed);
+    // Set the wheels to launching speed
+    launcher.setFeedWheel(kFeederSlowLaunchSpeed);
   }
 
   // Called every time the scheduler runs while the command is scheduled.
@@ -40,17 +39,18 @@ public class PrepareSlowLaunch extends Command {
     // of the base class will run.
   }
 
-  // Called once the command ends or is interrupted.
-  @Override
-  public void end(boolean interrupted) {
-    // Do nothing when the command ends. The launch wheel needs to keep spinning in order to launch
-  }
-
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    // Always return false so the command never ends on it's own. In this project we use a timeout
-    // decorator on the command to end it.
+    // Always return false so the command never ends on it's own. In this project we use the
+    // scheduler to end the command when the button is released.
     return false;
+  }
+
+  // Called once the command ends or is interrupted.
+  @Override
+  public void end(boolean interrupted) {
+    // Stop the wheels when the command ends.
+    launcher.stop();
   }
 }

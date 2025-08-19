@@ -15,29 +15,37 @@ package frc.robot;
 public final class Constants {
   public static class OperatorConstants {
     // Port numbers for driver and operator gamepads. These correspond with the numbers on the USB
-    // tab of the DriverStation
+    // tab of the DriverStation 
     public static final int kDriverControllerPort = 0;
     public static final int kOperatorControllerPort = 0;
   }
 
   public static class DrivetrainConstants {
     // PWM ports/CAN IDs for motor controllers
-    public static final int kLeftRearID = 1;
-    public static final int kLeftFrontID = 2;
-    public static final int kRightRearID = 4;
-    public static final int kRightFrontID = 3;
+    public static final int kLeftRearID = 2;
+    public static final int kLeftFrontID = 1;
+    public static final int kRightRearID = 3;
+    public static final int kRightFrontID = 4;
 
     // Current limit for drivetrain motors
     public static final int kCurrentLimit = 60;
+
+    //Slew rate limit for the motors
+    public static final double kSlewRateLimit = 3.0;
+
+    //Slow drive Speed for Robot
+    public static final double kSlowDriveSpeed = 0.6;
   }
 
   public static class LauncherConstants {
     // PWM ports/CAN IDs for motor controllers
-    public static final int kFeederID = 6;
-    public static final int kLauncherID = 7;
+    public static final int kLeftFeederID = 6;
+    public static final int kLeftLauncherID = 5;
+    public static final int kRightFeederID = 7;
+    public static final int kRightLauncherID = 8;
 
     // Current limit for launcher and feed wheels
-    public static final int kLauncherCurrentLimit = 80;
+    public static final int kLauncherCurrentLimit = 80;   
     public static final int kFeedCurrentLimit = 80;
 
     // Speeds for wheels when intaking and launching. Intake speeds are negative to run the wheels
@@ -45,36 +53,52 @@ public final class Constants {
     
     // Launcher Top 7 is the top motor. 
     // Launches with Negative values
-    public static final double kLauncherIntakeSpeed = -1;
-    public static final double kLauncherLaunchSpeed = 1;
+    public static final double kLauncherIntakeSpeed = 0.5;
+    public static final double kLauncherLaunchSpeed = -1;
 
     // Feeder Bottom 6 is the bottom motor. 
     // Launches with Positive values
-    public static final double kFeederIntakeSpeed = 1;
+    public static final double kFeederIntakeSpeed = 0.5;
     public static final double kFeederLaunchSpeed = -1;
 
-    public static final double kLauncherDelay = .5;
+    public static final double kLauncherDelay = 0.5;
     public static final double kLauncherRunDuration = 1;
 
-    // Slower speeds for launch
-    public static final double kLauncherSlowLaunchSpeed = 0.28;
-    public static final double kFeederSlowLaunchSpeed = -0.5;
+    public static final double kLauncherSlowLaunchSpeed = 0.1;
+    public static final double kFeederSlowLaunchSpeed = -0.1;
+
+    public static final double kMaxTemperature = 60.0;
   }
 
+  public static class GroundMotorConstants{
+    public static final int kGroundIntakeID = 10;
+    public static final double kGroundIntakeSpeed = 0.6;
+  }
   public static class AutoConstants{
     public static final double kAutoDrivePower = -0.5;
     public static final double kAutoTimeout = 1;
     public static final double kAutoDriveSpeed = -0.5;
+    public static final double kDriveTime = 4.5;
+    public static final double kAutoTurnTime = 2.4;
 
   }
   public static class ClimberConstants{
-    public static final int kclimberID = 0;
+    public static final int kclimberID = 9;
 
     public static final double kclimberAscendSpeed = 0.7;
-    public static final double kclimberDescendSpeed = -1;
+    public static final double kclimberDescendSpeed = -1.0;
 
-    public static final double kclimberMinHeight = 40;
-    public static final double kclimberMaxHeight = 70;
+    public static final double kclimberMinHeight = 40.0;
+    public static final double kclimberMaxHeight = 70.0;
 
+    public static final int kTopSwitchID = 0;
+    public static final int kBottomSwitchID = 1;
+
+    public static final double kCurrentHeight = 10.0;
+  }
+
+  public static class NavXConstants {
+    public static final double kCorrectionFactor = 0.03;
+    public static final double kSpeed = -0.8;
   }
 }

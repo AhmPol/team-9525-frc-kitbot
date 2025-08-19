@@ -2,22 +2,22 @@
 // Open Source Software; you can modify and/or share it under the terms of
 // the WPILib BSD license file in the root directory of this project.
 
-package frc.robot.commands;
+package frc.robot.commands.Launcher;
 
 import static frc.robot.Constants.LauncherConstants.*;
 
 import edu.wpi.first.wpilibj2.command.Command;
-import frc.robot.subsystems.CANLauncher;
+import frc.robot.subsystems.Launcher;
 
 // import frc.robot.subsystems.CANLauncher;
 
 public class PrepareLaunch extends Command {
-  CANLauncher launcher;
+  Launcher launcher;
 
   // CANLauncher launcher;
 
   /** Creates a new PrepareLaunch. */
-  public PrepareLaunch(CANLauncher launcher) {
+  public PrepareLaunch(Launcher launcher) {
     // save the launcher system internally
     this.launcher = launcher;
 
