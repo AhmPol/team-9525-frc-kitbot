@@ -16,10 +16,10 @@ This repository contains the code for our 2024 FRC (FIRST Robotics Competition) 
 
 ## Features
 
-* \Feature 1: e.g., Drivetrain control with joystick input
-* \Feature 2: e.g., Shooter mechanism with PID control
-* \Feature 3: e.g., Autonomous routines for game pieces
-* \Feature 4: e.g., Sensor integration (vision, encoders, etc.)
+* Feature 1: e.g., Drivetrain control with joystick input
+* Feature 2: e.g., Shooter mechanism with PID control
+* Feature 3: e.g., Autonomous routines for game pieces
+* Feature 4: e.g., Sensor integration (vision, encoders, etc.)
 
 ## Getting Started
 
@@ -36,7 +36,7 @@ git clone <repo_url>
 
 ## License
 
-\[Specify your license, e.g., MIT License]
+Specify your license, e.g., MIT License
 
 ---
 
