@@ -1,6 +1,6 @@
 # FRC 2024 Robot
 
-This repository contains the code for our 2024 FRC (FIRST Robotics Competition) robot.
+This repository contains the code for Niletech 9525 2024 FRC (FIRST Robotics Competition) robot.
 
 ---
 
